@@ -11,17 +11,17 @@ export default async function Home() {
 
   return (
     <div>
-      <div className="relative left-1/2 h-[calc(100svh-4.35rem)] w-screen max-w-[100vw] -translate-x-1/2 -mt-10">
+      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 -mt-10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/home-hero.jpg"
           alt="DataBall"
-          className="absolute inset-0 h-full w-full bg-[#003262] object-cover object-center"
+          className="block h-auto w-full bg-[#003262] contrast-[1.12] saturate-[1.08] brightness-[1.06]"
         />
         <a
           href="#recents"
           aria-label="See recents"
-          className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] transition hover:text-white"
+          className="absolute left-1/2 top-[calc(100svh-4.35rem-5.5rem)] z-10 -translate-x-1/2 text-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] transition hover:text-white"
         >
           <svg className="h-11 w-11 animate-bounce" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path

@@ -20,7 +20,8 @@ export function authPassword() {
 }
 
 export function editorEmails() {
-  const raw = process.env.EDITOR_EMAILS || "sharonlu0914@gmail.com";
+  const raw =
+    process.env.EDITOR_EMAILS || "sharonlu0914@gmail.com,202860116@stu.scls-sh.org";
   return raw
     .split(",")
     .map((value) => value.trim().toLowerCase())
