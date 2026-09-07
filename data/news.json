@@ -3,12 +3,23 @@
     "slug": "please-support-sharon-carson-8817",
     "title": "Please support SHARON & CARSON!!!",
     "excerpt": "❗️super important",
-    "body": "Please vote for Carson and Sharon for student concil president election!\nThank you! 🫶",
+    "body": "Please vote for Carson and Sharon for student concil president election!\n\nThank you! 🫶",
+    "coverUrl": "/uploads/1788776186111-pzy2tb.png",
     "blocks": [
       {
         "id": "b-mto9ex6f-2vui",
         "type": "text",
-        "text": "Please vote for Carson and Sharon for student concil president election!\nThank you! 🫶"
+        "text": "Please vote for Carson and Sharon for student concil president election!"
+      },
+      {
+        "id": "b-mtr366ui-i2z5",
+        "type": "image",
+        "url": "/uploads/1788776212262-agupe1.jpg"
+      },
+      {
+        "id": "b-mtr366uj-hosl",
+        "type": "text",
+        "text": "Thank you! 🫶"
       }
     ],
     "date": "2026-09-05"

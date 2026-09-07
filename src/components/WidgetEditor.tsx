@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { HomeWidget, HomeWidgetLink } from "@/lib/types";
+import { MediaPicker } from "@/components/MediaPicker";
 
 const defaultBracketLinks: HomeWidgetLink[] = [
   { href: "/sports/basketball/bracket", label: "Basketball" },
@@ -103,14 +104,6 @@ export function WidgetEditor({
 }) {
   const links = widget.links?.length ? widget.links : defaultBracketLinks;
 
-  async function uploadImage(file: File) {
-    const form = new FormData();
-    form.append("file", file);
-    const res = await fetch("/api/upload", { method: "POST", body: form });
-    const data = (await res.json()) as { url?: string };
-    if (data.url) onChange({ imageUrl: data.url });
-  }
-
   return (
     <div className="mb-3 space-y-3 rounded-xl border border-berkeley/10 bg-white p-4">
       <TextField label="Title" value={widget.title ?? ""} onSave={(title) => onChange({ title })} />
@@ -196,18 +189,12 @@ export function WidgetEditor({
       {widget.type === "note" ? (
         <>
           <TextField label="Body" value={widget.body ?? ""} rows={4} onSave={(body) => onChange({ body })} />
-          <label className="block text-sm">
-            <span className="label-ui text-[0.65rem] text-berkeley/55">Photo</span>
-            <input
-              className="mt-1 block w-full text-sm"
-              type="file"
-              accept="image/*"
-              onChange={(event) => {
-                const file = event.target.files?.[0];
-                if (file) void uploadImage(file);
-              }}
-            />
-          </label>
+          <div>
+            <p className="label-ui text-[0.65rem] text-berkeley/55">Photo</p>
+            <div className="mt-1">
+              <MediaPicker kind="image" value={widget.imageUrl} onChange={(imageUrl) => onChange({ imageUrl })} />
+            </div>
+          </div>
         </>
       ) : null}
     </div>

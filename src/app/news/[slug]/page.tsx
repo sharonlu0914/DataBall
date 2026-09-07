@@ -36,6 +36,10 @@ export default async function NewsArticlePage({ params }: Props) {
           </div>
         ) : null}
       </div>
+      {post.coverUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={post.coverUrl} alt="" className="mb-8 max-h-[28rem] w-full rounded-xl object-cover" />
+      ) : null}
       <NewsBody body={post.body} blocks={post.blocks} />
     </article>
   );

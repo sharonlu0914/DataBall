@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Match, RankingRow, SchoolClass, Sport, SportStatRow, Team } from "@/lib/types";
+import { MediaPicker } from "@/components/MediaPicker";
 
 const field = "mt-2 w-full rounded-lg border border-black/15 px-3 py-2 text-sm";
 
@@ -287,21 +288,13 @@ export function StatsEditor({ sport, rows }: { sport: Sport; rows: SportStatRow[
 
 export function HistoryEditor({ sport, teams }: { sport: Sport; teams: Team[] }) {
   const router = useRouter();
+  const [videoUrl, setVideoUrl] = useState("");
   return (
     <form
       className="max-w-md rounded-xl border border-berkeley/10 bg-white p-5"
       onSubmit={async (event) => {
         event.preventDefault();
         const form = new FormData(event.currentTarget);
-        let videoUrl = String(form.get("videoUrl") ?? "");
-        const file = form.get("file");
-        if (file instanceof File && file.size) {
-          const data = new FormData();
-          data.append("file", file);
-          const res = await fetch("/api/upload", { method: "POST", body: data });
-          const json = (await res.json()) as { url?: string };
-          if (json.url) videoUrl = json.url;
-        }
         await postLeague({
           championship: {
             sport,
@@ -311,6 +304,8 @@ export function HistoryEditor({ sport, teams }: { sport: Sport; teams: Team[] })
             videoUrl: videoUrl || undefined,
           },
         });
+        setVideoUrl("");
+        event.currentTarget.reset();
         router.refresh();
       }}
     >
@@ -330,8 +325,10 @@ export function HistoryEditor({ sport, teams }: { sport: Sport; teams: Team[] })
           </option>
         ))}
       </select>
-      <input name="videoUrl" placeholder="Film URL (optional)" className={field} />
-      <input name="file" type="file" accept="video/*" className={`${field} border-0 px-0`} />
+      <p className="label-ui mt-3 text-[0.65rem] text-berkeley/55">Film</p>
+      <div className="mt-1">
+        <MediaPicker kind="video" value={videoUrl} onChange={setVideoUrl} />
+      </div>
       <button type="submit" className="label-ui mt-3 rounded-full bg-berkeley px-4 py-2 text-[0.7rem] text-gold">
         Save
       </button>
@@ -375,20 +372,8 @@ export function MatchEditor({
         <input className={field} value={scoreB} onChange={(e) => setScoreB(e.target.value)} placeholder="Score B" />
       </div>
       <textarea className={field} rows={3} value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Notes" />
-      <input className={field} value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)} placeholder="Video URL" />
-      <input
-        type="file"
-        accept="video/*"
-        onChange={async (event) => {
-          const file = event.target.files?.[0];
-          if (!file) return;
-          const data = new FormData();
-          data.append("file", file);
-          const res = await fetch("/api/upload", { method: "POST", body: data });
-          const json = (await res.json()) as { url?: string };
-          if (json.url) setVideoUrl(json.url);
-        }}
-      />
+      <p className="label-ui mt-2 text-[0.65rem] text-berkeley/55">Video</p>
+      <MediaPicker kind="video" value={videoUrl} onChange={setVideoUrl} />
       <p className="text-sm font-medium">Box / match data</p>
       {box.map((row, index) => (
         <div key={`${row.playerId}-${index}`} className="grid gap-2 md:grid-cols-3">

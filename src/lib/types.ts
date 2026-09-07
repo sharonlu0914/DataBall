@@ -9,6 +9,7 @@ export type NewsPost = {
   date: string;
   sport?: Sport;
   featured?: boolean;
+  coverUrl?: string;
   blocks?: NewsBlock[];
 };
 

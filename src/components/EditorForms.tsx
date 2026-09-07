@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { SPORTS } from "@/lib/types";
+import { MediaPicker } from "@/components/MediaPicker";
 
 const field = "mt-3 w-full rounded-lg border border-black/15 px-3 py-2 text-sm";
 
@@ -32,6 +33,7 @@ export function AddSportsDay() {
 
 export function AddLeagueHall() {
   const [open, setOpen] = useState(false);
+  const [photo, setPhoto] = useState("");
   if (!open) {
     return (
       <button type="button" className="label-ui rounded-full bg-berkeley px-4 py-2 text-[0.7rem] text-gold" onClick={() => setOpen(true)}>
@@ -55,7 +57,10 @@ export function AddLeagueHall() {
       <input name="className" placeholder="Class" className={field} required />
       <input name="year" type="number" defaultValue={new Date().getFullYear()} className={field} required />
       <input name="note" placeholder="Note (optional)" className={field} />
-      <input name="file" type="file" accept="image/*" className={`${field} border-0 px-0`} />
+      <p className="label-ui mt-3 text-[0.65rem] text-berkeley/55">Photo</p>
+      <div className="mt-1">
+        <MediaPicker kind="image" name="imageUrl" value={photo} onChange={setPhoto} />
+      </div>
       <div className="mt-4 flex gap-3">
         <button type="submit" className="label-ui rounded-full bg-berkeley px-4 py-2 text-[0.7rem] text-gold">Save</button>
         <button type="button" className="text-sm text-berkeley/60" onClick={() => setOpen(false)}>Cancel</button>

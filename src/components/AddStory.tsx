@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { NewsBlock, NewsPost } from "@/lib/types";
+import { MediaPicker, uploadMedia } from "@/components/MediaPicker";
 
 function nid() {
   return `b-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
@@ -25,34 +26,66 @@ export function StoryComposer({
   const [open, setOpen] = useState(Boolean(post) && triggerLabel === "Save");
   const [title, setTitle] = useState(post?.title ?? "");
   const [excerpt, setExcerpt] = useState(post?.excerpt ?? "");
+  const [coverUrl, setCoverUrl] = useState(post?.coverUrl ?? "");
   const [blocks, setBlocks] = useState<NewsBlock[]>(fromPost(post));
   const [busy, setBusy] = useState(false);
+  const [mediaError, setMediaError] = useState("");
+  const focusedId = useRef<string | null>(null);
+  const caret = useRef(0);
+  const textareas = useRef<Record<string, HTMLTextAreaElement | null>>({});
+  const imagePick = useRef<HTMLInputElement>(null);
+  const videoPick = useRef<HTMLInputElement>(null);
+  const pendingKind = useRef<"image" | "video">("image");
 
   function update(id: string, patch: Partial<NewsBlock>) {
     setBlocks((list) => list.map((b) => (b.id === id ? ({ ...b, ...patch } as NewsBlock) : b)));
   }
 
-  function insertAfter(id: string, type: NewsBlock["type"]) {
-    const next: NewsBlock =
-      type === "text"
-        ? { id: nid(), type: "text", text: "" }
-        : type === "image"
-          ? { id: nid(), type: "image", url: "" }
-          : { id: nid(), type: "video", url: "" };
+  function rememberCaret(id: string) {
+    focusedId.current = id;
+    const node = textareas.current[id];
+    if (node) caret.current = node.selectionStart ?? node.value.length;
+  }
+
+  function insertMedia(url: string, type: "image" | "video") {
+    const media: NewsBlock = { id: nid(), type, url };
     setBlocks((list) => {
+      const id = focusedId.current ?? list[list.length - 1]?.id;
       const i = list.findIndex((b) => b.id === id);
+      if (i < 0) return [...list, media, { id: nid(), type: "text", text: "" }];
+      const current = list[i];
+      if (current.type !== "text") {
+        const copy = [...list];
+        copy.splice(i + 1, 0, media, { id: nid(), type: "text", text: "" });
+        return copy;
+      }
+      const at = Math.min(caret.current, current.text.length);
+      const before = current.text.slice(0, at).replace(/\s+$/, "");
+      const after = current.text.slice(at).replace(/^\s+/, "");
+      const next: NewsBlock[] = [];
+      if (before) next.push({ ...current, text: before });
+      next.push(media);
+      next.push({ id: nid(), type: "text", text: after });
       const copy = [...list];
-      copy.splice(i + 1, 0, next);
+      copy.splice(i, 1, ...next);
       return copy;
     });
   }
 
-  async function upload(id: string, file: File) {
-    const data = new FormData();
-    data.append("file", file);
-    const res = await fetch("/api/upload", { method: "POST", body: data });
-    const json = (await res.json()) as { url?: string };
-    if (json.url) update(id, { url: json.url } as Partial<NewsBlock>);
+  async function onPicked(file: File | undefined) {
+    if (!file) return;
+    setMediaError("");
+    try {
+      insertMedia(await uploadMedia(file), pendingKind.current);
+    } catch (err) {
+      setMediaError(err instanceof Error ? err.message : "Upload failed");
+    }
+  }
+
+  function pick(kind: "image" | "video") {
+    pendingKind.current = kind;
+    if (kind === "image") imagePick.current?.click();
+    else videoPick.current?.click();
   }
 
   async function publish() {
@@ -60,7 +93,7 @@ export function StoryComposer({
     const res = await fetch("/api/news", {
       method: post ? "PUT" : "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, excerpt, blocks, slug: post?.slug }),
+      body: JSON.stringify({ title, excerpt, coverUrl, blocks, slug: post?.slug }),
     });
     setBusy(false);
     if (!res.ok) return;
@@ -86,6 +119,28 @@ export function StoryComposer({
     <div className="w-full max-w-2xl rounded-xl border border-berkeley/10 bg-white p-5 shadow-[0_8px_30px_rgba(0,50,98,0.06)]">
       <p className="label-ui text-[0.7rem] text-gold-dark">{post ? "Edit story" : "Compose"}</p>
       <input
+        ref={imagePick}
+        type="file"
+        accept="image/*"
+        className="sr-only"
+        onChange={(e) => {
+          const file = e.target.files?.[0];
+          e.target.value = "";
+          void onPicked(file);
+        }}
+      />
+      <input
+        ref={videoPick}
+        type="file"
+        accept="video/*"
+        className="sr-only"
+        onChange={(e) => {
+          const file = e.target.files?.[0];
+          e.target.value = "";
+          void onPicked(file);
+        }}
+      />
+      <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Headline"
@@ -94,82 +149,90 @@ export function StoryComposer({
       <input
         value={excerpt}
         onChange={(e) => setExcerpt(e.target.value)}
-        placeholder="Short dek"
+        placeholder="Short dek (optional)"
         className="mt-3 w-full rounded-lg border border-black/15 px-3 py-2"
       />
-      <div className="mt-4 space-y-4">
+
+      <div className="mt-4 rounded-lg border border-dashed border-berkeley/20 p-3">
+        <p className="label-ui text-[0.65rem] text-berkeley/55">Cover photo</p>
+        <p className="mt-1 text-xs text-berkeley/45">Optional. Skip this for a text-only story.</p>
+        <div className="mt-2">
+          <MediaPicker kind="image" value={coverUrl} onChange={setCoverUrl} />
+        </div>
+        {coverUrl ? (
+          <button type="button" className="mt-2 text-xs text-gold-dark hover:underline" onClick={() => setCoverUrl("")}>
+            Remove cover
+          </button>
+        ) : null}
+      </div>
+
+      <div className="mt-4 flex flex-wrap items-center gap-3">
+        <p className="label-ui text-[0.65rem] text-berkeley/55">Body</p>
+        <button type="button" className="text-xs text-berkeley hover:underline" onClick={() => pick("image")}>
+          Insert image
+        </button>
+        <button type="button" className="text-xs text-berkeley hover:underline" onClick={() => pick("video")}>
+          Insert video
+        </button>
+      </div>
+      <p className="mt-1 text-xs text-berkeley/45">
+        Click in the text first, then insert — the photo goes at the cursor.
+      </p>
+      {mediaError ? <p className="mt-2 text-sm text-gold-dark">{mediaError}</p> : null}
+
+      <div className="mt-3 space-y-3">
         {blocks.map((block) => (
-          <div key={block.id} className="rounded-lg border border-black/10 p-3">
+          <div key={block.id}>
             {block.type === "text" ? (
               <textarea
-                rows={5}
+                ref={(node) => {
+                  textareas.current[block.id] = node;
+                }}
+                rows={Math.max(4, block.text.split("\n").length + 1)}
                 value={block.text}
                 onChange={(e) => update(block.id, { text: e.target.value })}
-                placeholder="Write this section…"
-                className="w-full rounded-md border border-black/10 px-3 py-2"
+                onSelect={() => rememberCaret(block.id)}
+                onClick={() => rememberCaret(block.id)}
+                onKeyUp={() => rememberCaret(block.id)}
+                placeholder="Write here…"
+                className="w-full rounded-md border border-black/10 px-3 py-2 leading-7"
               />
             ) : null}
             {block.type === "image" ? (
-              <div className="space-y-2">
-                <input
-                  value={block.url}
-                  onChange={(e) => update(block.id, { url: e.target.value })}
-                  placeholder="Image URL"
-                  className="w-full rounded-md border border-black/10 px-3 py-2 text-sm"
-                />
-                <input type="file" accept="image/*" onChange={(e) => e.target.files?.[0] && upload(block.id, e.target.files[0])} />
-                {block.url ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={block.url} alt="" className="max-h-56 rounded-md object-cover" />
-                ) : null}
+              <div className="space-y-2 rounded-lg bg-paper/80 p-3">
+                <MediaPicker kind="image" value={block.url} onChange={(url) => update(block.id, { url })} />
                 <input
                   value={block.caption ?? ""}
                   onChange={(e) => update(block.id, { caption: e.target.value })}
-                  placeholder="Caption"
+                  placeholder="Caption (optional)"
                   className="w-full rounded-md border border-black/10 px-3 py-2 text-sm"
                 />
               </div>
             ) : null}
             {block.type === "video" ? (
-              <div className="space-y-2">
-                <input
-                  value={block.url}
-                  onChange={(e) => update(block.id, { url: e.target.value })}
-                  placeholder="YouTube or video URL"
-                  className="w-full rounded-md border border-black/10 px-3 py-2 text-sm"
-                />
-                <input type="file" accept="video/*" onChange={(e) => e.target.files?.[0] && upload(block.id, e.target.files[0])} />
+              <div className="space-y-2 rounded-lg bg-paper/80 p-3">
+                <MediaPicker kind="video" value={block.url} onChange={(url) => update(block.id, { url })} />
                 <input
                   value={block.caption ?? ""}
                   onChange={(e) => update(block.id, { caption: e.target.value })}
-                  placeholder="Caption"
+                  placeholder="Caption (optional)"
                   className="w-full rounded-md border border-black/10 px-3 py-2 text-sm"
                 />
               </div>
             ) : null}
-            <div className="mt-2 flex flex-wrap gap-2 text-xs">
-              <button type="button" className="hover:underline" onClick={() => insertAfter(block.id, "text")}>
-                + Text
+            {block.type !== "text" || blocks.length > 1 ? (
+              <button
+                type="button"
+                className="mt-1 text-xs text-gold-dark hover:underline"
+                onClick={() => setBlocks((list) => list.filter((b) => b.id !== block.id))}
+              >
+                Remove
               </button>
-              <button type="button" className="hover:underline" onClick={() => insertAfter(block.id, "image")}>
-                + Image
-              </button>
-              <button type="button" className="hover:underline" onClick={() => insertAfter(block.id, "video")}>
-                + Video
-              </button>
-              {blocks.length > 1 ? (
-                <button
-                  type="button"
-                  className="text-gold-dark hover:underline"
-                  onClick={() => setBlocks((list) => list.filter((b) => b.id !== block.id))}
-                >
-                  Remove
-                </button>
-              ) : null}
-            </div>
+            ) : null}
           </div>
         ))}
       </div>
+
       <div className="mt-4 flex gap-3">
         <button
           type="button"

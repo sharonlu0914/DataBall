@@ -14,11 +14,13 @@ function isBlock(value: unknown): value is NewsBlock {
 function fromPayload(payload: {
   title?: string;
   excerpt?: string;
+  coverUrl?: string;
   blocks?: unknown[];
   slug?: string;
   date?: string;
 }): NewsPost | null {
   const title = String(payload.title ?? "").trim();
+  const coverUrl = String(payload.coverUrl ?? "").trim();
   const blocks = (payload.blocks ?? []).filter(isBlock).map((block, index) => ({
     ...block,
     id: block.id || `b-${index}`,
@@ -41,6 +43,7 @@ function fromPayload(payload: {
     title,
     excerpt,
     body: text,
+    coverUrl: coverUrl || undefined,
     blocks,
     date: payload.date || new Date().toISOString().slice(0, 10),
   };
@@ -56,7 +59,13 @@ export async function POST(request: Request) {
 
 export async function PUT(request: Request) {
   if (!(await isEditor())) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  const payload = (await request.json()) as { slug?: string; title?: string; excerpt?: string; blocks?: unknown[] };
+  const payload = (await request.json()) as {
+    slug?: string;
+    title?: string;
+    excerpt?: string;
+    coverUrl?: string;
+    blocks?: unknown[];
+  };
   if (!payload.slug || !getNews(payload.slug)) {
     return NextResponse.json({ error: "Missing story" }, { status: 404 });
   }

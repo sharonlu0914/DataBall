@@ -35,6 +35,12 @@ export default async function NewsPage({
       <div className="space-y-4">
         {posts.map((post) => (
           <Card key={post.slug}>
+            {post.coverUrl ? (
+              <Link href={`/news/${post.slug}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={post.coverUrl} alt="" className="mb-4 max-h-56 w-full rounded-lg object-cover" />
+              </Link>
+            ) : null}
             <p className="label-ui text-[0.7rem] text-berkeley/50">
               {post.date}
               {post.sport ? ` · ${sportLabel(post.sport)}` : ""}
