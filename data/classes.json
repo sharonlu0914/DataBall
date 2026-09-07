@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "id": "g12c2",
+    "name": "G12C2",
+    "grade": 12
+  },
+  {
+    "id": "g12c1",
+    "name": "G12C1",
+    "grade": 12
+  },
+  {
+    "id": "g11c2",
+    "name": "G11C2",
+    "grade": 11
+  },
+  {
+    "id": "g11c1",
+    "name": "G11C1",
+    "grade": 11
+  },
+  {
+    "id": "g10c2",
+    "name": "G10C2",
+    "grade": 10
+  },
+  {
+    "id": "g10c1",
+    "name": "G10C1",
+    "grade": 10
+  }
+]
