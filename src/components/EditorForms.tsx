@@ -22,7 +22,6 @@ export function AddSportsDay() {
       <input name="event" placeholder="Event (100m, long jump…)" className={field} required />
       <input name="mark" placeholder="Mark" className={field} required />
       <input name="holder" placeholder="Athlete" className={field} required />
-      <input name="className" placeholder="Class (11A)" className={field} required />
       <div className="mt-4 flex gap-3">
         <button type="submit" className="label-ui rounded-full bg-berkeley px-4 py-2 text-[0.7rem] text-gold">Save</button>
         <button type="button" className="text-sm text-berkeley/60" onClick={() => setOpen(false)}>Cancel</button>
@@ -54,7 +53,6 @@ export function AddLeagueHall() {
       <input name="title" placeholder="Record title" className={field} required />
       <input name="mark" placeholder="Mark" className={field} required />
       <input name="holder" placeholder="Player" className={field} required />
-      <input name="className" placeholder="Class" className={field} required />
       <input name="year" type="number" defaultValue={new Date().getFullYear()} className={field} required />
       <input name="note" placeholder="Note (optional)" className={field} />
       <p className="label-ui mt-3 text-[0.65rem] text-berkeley/55">Photo</p>

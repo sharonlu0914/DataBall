@@ -70,7 +70,7 @@ export type SportsDayRecord = {
   year: number;
   event: string;
   holder: string;
-  className: string;
+  className?: string;
   mark: string;
 };
 
@@ -79,7 +79,7 @@ export type LeagueRecord = {
   sport: Sport;
   title: string;
   holder: string;
-  className: string;
+  className?: string;
   mark: string;
   year: number;
   note?: string;

@@ -37,7 +37,7 @@ export default async function LeagueHallPage() {
             <h2 className="mt-2 font-semibold">{r.title}</h2>
             <p className="font-heading mt-1 text-2xl">{r.mark}</p>
             <p className="text-sm text-berkeley/70">
-              {r.holder} · {r.className} · {r.year}
+              {r.holder} · {r.year}
               {r.note ? ` · ${r.note}` : ""}
             </p>
           </Card>

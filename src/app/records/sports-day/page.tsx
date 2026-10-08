@@ -31,14 +31,13 @@ export default async function SportsDayRecordsPage() {
               <th className="px-4 py-3">Event</th>
               <th className="px-4 py-3">Mark</th>
               <th className="px-4 py-3">Athlete</th>
-              <th className="px-4 py-3">Class</th>
               <th className="px-4 py-3">Year</th>
             </tr>
           </thead>
           <tbody>
             {sportsDayRecords.length === 0 ? (
               <tr>
-                <td className="px-4 py-6 text-berkeley/55" colSpan={5}>
+                <td className="px-4 py-6 text-berkeley/55" colSpan={4}>
                   No records yet.
                 </td>
               </tr>
@@ -48,7 +47,6 @@ export default async function SportsDayRecordsPage() {
                   <td className="px-4 py-3 font-medium">{row.event}</td>
                   <td className="px-4 py-3 font-heading text-lg">{row.mark}</td>
                   <td className="px-4 py-3">{row.holder}</td>
-                  <td className="px-4 py-3">{row.className}</td>
                   <td className="px-4 py-3">{row.year}</td>
                 </tr>
               ))

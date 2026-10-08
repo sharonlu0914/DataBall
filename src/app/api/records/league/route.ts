@@ -10,7 +10,6 @@ export async function POST(request: Request) {
   const title = String(form.get("title") ?? "").trim();
   const mark = String(form.get("mark") ?? "").trim();
   const holder = String(form.get("holder") ?? "").trim();
-  const className = String(form.get("className") ?? "").trim();
   const year = Number(form.get("year"));
   const note = String(form.get("note") ?? "").trim();
   const imageUrl = String(form.get("imageUrl") ?? "").trim();
@@ -26,7 +25,7 @@ export async function POST(request: Request) {
     await writeFile(path.join(dir, safe), Buffer.from(await file.arrayBuffer()));
     photo = `/uploads/${safe}`;
   }
-  if (!isSport(sport) || !title || !mark || !holder || !className || !year) {
+  if (!isSport(sport) || !title || !mark || !holder || !year) {
     return NextResponse.redirect(new URL("/records/league-hall", request.url), 303);
   }
   saveLeagueRecord({
@@ -35,7 +34,6 @@ export async function POST(request: Request) {
     title,
     mark,
     holder,
-    className,
     year,
     note: note || undefined,
     imageUrl: photo || undefined,
