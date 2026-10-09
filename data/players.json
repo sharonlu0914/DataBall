@@ -1,32 +1,722 @@
 [
-  {"id":"demo-bb-p-g12c1-1","name":"林启航","classId":"g12c1","sports":["basketball"],"bio":"Point guard who sets the tempo.","stats":{"basketball":{"ppg":18.4,"rpg":3.1,"apg":6.2}}},
-  {"id":"demo-bb-p-g12c1-2","name":"赵予安","classId":"g12c1","sports":["basketball"],"bio":"Wing scorer with range from the corner.","stats":{"basketball":{"ppg":15.7,"rpg":4.8,"apg":2.4}}},
-  {"id":"demo-bb-p-g12c1-3","name":"周景行","classId":"g12c1","sports":["basketball"],"bio":"Frontcourt anchor on the glass.","stats":{"basketball":{"ppg":12.2,"rpg":9.1,"apg":1.6}}},
-  {"id":"demo-bb-p-g12c1-4","name":"吴浩然","classId":"g12c1","sports":["basketball"],"bio":"Defensive stopper on the wing.","stats":{"basketball":{"ppg":8.9,"rpg":5.4,"apg":2.1}}},
-  {"id":"demo-bb-p-g12c1-5","name":"陈予墨","classId":"g12c1","sports":["basketball"],"bio":"Sixth-man spark off the bench.","stats":{"basketball":{"ppg":7.3,"rpg":2.8,"apg":3.5}}},
-  {"id":"demo-bb-p-g12c2-1","name":"黄子谦","classId":"g12c2","sports":["basketball"],"bio":"Crafty lead guard.","stats":{"basketball":{"ppg":16.8,"rpg":2.9,"apg":5.8}}},
-  {"id":"demo-bb-p-g12c2-2","name":"徐皓宇","classId":"g12c2","sports":["basketball"],"bio":"Slasher who finishes through contact.","stats":{"basketball":{"ppg":14.1,"rpg":4.2,"apg":2.0}}},
-  {"id":"demo-bb-p-g12c2-3","name":"孙嘉树","classId":"g12c2","sports":["basketball"],"bio":"Rim protector.","stats":{"basketball":{"ppg":11.5,"rpg":8.6,"apg":1.2}}},
-  {"id":"demo-bb-p-g12c2-4","name":"马景深","classId":"g12c2","sports":["basketball"],"bio":"Catch-and-shoot specialist.","stats":{"basketball":{"ppg":10.4,"rpg":3.3,"apg":1.8}}},
-  {"id":"demo-bb-p-g12c2-5","name":"何予辰","classId":"g12c2","sports":["basketball"],"bio":"Energy rebounder.","stats":{"basketball":{"ppg":6.2,"rpg":6.7,"apg":1.1}}},
-  {"id":"demo-bb-p-g11c1-1","name":"郑一诺","classId":"g11c1","sports":["basketball"],"bio":"Floor general for Group A’s runner-up.","stats":{"basketball":{"ppg":15.2,"rpg":3.4,"apg":5.1}}},
-  {"id":"demo-bb-p-g11c1-2","name":"冯启明","classId":"g11c1","sports":["basketball"],"bio":"Midrange specialist.","stats":{"basketball":{"ppg":13.6,"rpg":4.1,"apg":2.2}}},
-  {"id":"demo-bb-p-g11c1-3","name":"邓博文","classId":"g11c1","sports":["basketball"],"bio":"Post scorer.","stats":{"basketball":{"ppg":11.8,"rpg":7.9,"apg":1.4}}},
-  {"id":"demo-bb-p-g11c1-4","name":"曹景轩","classId":"g11c1","sports":["basketball"],"bio":"Help defender.","stats":{"basketball":{"ppg":7.5,"rpg":5.2,"apg":1.9}}},
-  {"id":"demo-bb-p-g11c1-5","name":"韩予泽","classId":"g11c1","sports":["basketball"],"bio":"Spot-up shooter.","stats":{"basketball":{"ppg":6.8,"rpg":2.6,"apg":1.5}}},
-  {"id":"demo-bb-p-g11c2-1","name":"谢浩宇","classId":"g11c2","sports":["basketball"],"bio":"Attacking guard.","stats":{"basketball":{"ppg":14.9,"rpg":3.0,"apg":4.7}}},
-  {"id":"demo-bb-p-g11c2-2","name":"潘景程","classId":"g11c2","sports":["basketball"],"bio":"Cutters’ finisher.","stats":{"basketball":{"ppg":12.4,"rpg":4.6,"apg":1.7}}},
-  {"id":"demo-bb-p-g11c2-3","name":"梁予安","classId":"g11c2","sports":["basketball"],"bio":"Screen-and-roll big.","stats":{"basketball":{"ppg":10.1,"rpg":8.2,"apg":1.3}}},
-  {"id":"demo-bb-p-g11c2-4","name":"蔡启辰","classId":"g11c2","sports":["basketball"],"bio":"On-ball defender.","stats":{"basketball":{"ppg":8.2,"rpg":3.8,"apg":2.3}}},
-  {"id":"demo-bb-p-g11c2-5","name":"罗景行","classId":"g11c2","sports":["basketball"],"bio":"Secondary ball-handler.","stats":{"basketball":{"ppg":5.9,"rpg":2.4,"apg":3.1}}},
-  {"id":"demo-bb-p-g10c1-1","name":"许博远","classId":"g10c1","sports":["basketball"],"bio":"First-year lead guard.","stats":{"basketball":{"ppg":13.1,"rpg":2.7,"apg":4.4}}},
-  {"id":"demo-bb-p-g10c1-2","name":"沈嘉乐","classId":"g10c1","sports":["basketball"],"bio":"Transition scorer.","stats":{"basketball":{"ppg":11.3,"rpg":3.9,"apg":1.6}}},
-  {"id":"demo-bb-p-g10c1-3","name":"吕景川","classId":"g10c1","sports":["basketball"],"bio":"Box-out specialist.","stats":{"basketball":{"ppg":8.4,"rpg":7.1,"apg":0.9}}},
-  {"id":"demo-bb-p-g10c1-4","name":"方予航","classId":"g10c1","sports":["basketball"],"bio":"Corner shooter.","stats":{"basketball":{"ppg":7.1,"rpg":2.2,"apg":1.2}}},
-  {"id":"demo-bb-p-g10c1-5","name":"金浩轩","classId":"g10c1","sports":["basketball"],"bio":"Hustle wing.","stats":{"basketball":{"ppg":5.4,"rpg":4.5,"apg":1.4}}},
-  {"id":"demo-bb-p-g10c2-1","name":"丁启明","classId":"g10c2","sports":["basketball"],"bio":"Push-tempo guard.","stats":{"basketball":{"ppg":12.6,"rpg":2.5,"apg":4.1}}},
-  {"id":"demo-bb-p-g10c2-2","name":"姜予泽","classId":"g10c2","sports":["basketball"],"bio":"Drives and kick-outs.","stats":{"basketball":{"ppg":10.8,"rpg":3.6,"apg":2.5}}},
-  {"id":"demo-bb-p-g10c2-3","name":"魏景深","classId":"g10c2","sports":["basketball"],"bio":"Paint presence.","stats":{"basketball":{"ppg":9.2,"rpg":6.8,"apg":0.8}}},
-  {"id":"demo-bb-p-g10c2-4","name":"戴浩然","classId":"g10c2","sports":["basketball"],"bio":"Help-side rebounder.","stats":{"basketball":{"ppg":6.5,"rpg":5.1,"apg":1.0}}},
-  {"id":"demo-bb-p-g10c2-5","name":"邱予安","classId":"g10c2","sports":["basketball"],"bio":"Bench organizer.","stats":{"basketball":{"ppg":4.8,"rpg":2.1,"apg":2.8}}}
+  {
+    "id": "demo-bb-p-g12c1-1",
+    "name": "Leo Hart",
+    "classId": "g12c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Point guard who sets the tempo.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 31.4,
+        "ppg": 18.4,
+        "rpg": 3.1,
+        "apg": 6.2,
+        "stl": 2.3,
+        "blk": 0.3,
+        "tov": 3.8,
+        "fg": 47.3,
+        "three": 35.4,
+        "ft": 84.0
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c1-2",
+    "name": "Ryan Walsh",
+    "classId": "g12c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Wing scorer with range from the corner.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 28.7,
+        "ppg": 15.7,
+        "rpg": 4.8,
+        "apg": 2.4,
+        "stl": 1.0,
+        "blk": 0.4,
+        "tov": 2.5,
+        "fg": 46.1,
+        "three": 33.5,
+        "ft": 77.6
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c1-3",
+    "name": "Marcus Hale",
+    "classId": "g12c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Frontcourt anchor on the glass.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 26.9,
+        "ppg": 12.2,
+        "rpg": 9.1,
+        "apg": 1.6,
+        "stl": 0.9,
+        "blk": 1.9,
+        "tov": 2.0,
+        "fg": 51.5,
+        "three": 22.9,
+        "ft": 69.1
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c1-4",
+    "name": "Nathan Brooks",
+    "classId": "g12c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Defensive stopper on the wing.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 23.8,
+        "ppg": 8.9,
+        "rpg": 5.4,
+        "apg": 2.1,
+        "stl": 1.0,
+        "blk": 0.4,
+        "tov": 2.0,
+        "fg": 42.0,
+        "three": 29.1,
+        "ft": 74.5
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c1-5",
+    "name": "Owen Clarke",
+    "classId": "g12c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Sixth-man spark off the bench.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 17.6,
+        "ppg": 7.3,
+        "rpg": 2.8,
+        "apg": 3.5,
+        "stl": 1.3,
+        "blk": 0.3,
+        "tov": 2.4,
+        "fg": 42.3,
+        "three": 27.6,
+        "ft": 75.8
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c2-1",
+    "name": "Ethan Cole",
+    "classId": "g12c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Crafty lead guard.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 31.4,
+        "ppg": 16.8,
+        "rpg": 2.9,
+        "apg": 5.8,
+        "stl": 2.2,
+        "blk": 0.3,
+        "tov": 3.6,
+        "fg": 46.6,
+        "three": 34.9,
+        "ft": 82.8
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c2-2",
+    "name": "Julian Reyes",
+    "classId": "g12c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Slasher who finishes through contact.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 28.7,
+        "ppg": 14.1,
+        "rpg": 4.2,
+        "apg": 2.0,
+        "stl": 0.9,
+        "blk": 0.4,
+        "tov": 2.2,
+        "fg": 45.3,
+        "three": 32.9,
+        "ft": 76.4
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c2-3",
+    "name": "Caleb Stone",
+    "classId": "g12c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Rim protector.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 26.9,
+        "ppg": 11.5,
+        "rpg": 8.6,
+        "apg": 1.2,
+        "stl": 0.8,
+        "blk": 1.9,
+        "tov": 1.9,
+        "fg": 51.2,
+        "three": 22.6,
+        "ft": 68.3
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c2-4",
+    "name": "Miles Grant",
+    "classId": "g12c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Catch-and-shoot specialist.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 23.8,
+        "ppg": 10.4,
+        "rpg": 3.3,
+        "apg": 1.8,
+        "stl": 0.9,
+        "blk": 0.3,
+        "tov": 2.0,
+        "fg": 42.7,
+        "three": 29.6,
+        "ft": 74.7
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g12c2-5",
+    "name": "Theo Bennett",
+    "classId": "g12c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Energy rebounder.",
+    "stats": {
+      "basketball": {
+        "gp": 4,
+        "min": 17.6,
+        "ppg": 6.2,
+        "rpg": 6.7,
+        "apg": 1.1,
+        "stl": 0.7,
+        "blk": 0.5,
+        "tov": 1.6,
+        "fg": 41.8,
+        "three": 27.2,
+        "ft": 72.0
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c1-1",
+    "name": "Aaron Blake",
+    "classId": "g11c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Floor general for Group A’s runner-up.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 31.4,
+        "ppg": 15.2,
+        "rpg": 3.4,
+        "apg": 5.1,
+        "stl": 2.0,
+        "blk": 0.3,
+        "tov": 3.3,
+        "fg": 45.8,
+        "three": 34.3,
+        "ft": 81.2
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c1-2",
+    "name": "Lucas Price",
+    "classId": "g11c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Midrange specialist.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 28.7,
+        "ppg": 13.6,
+        "rpg": 4.1,
+        "apg": 2.2,
+        "stl": 1.0,
+        "blk": 0.4,
+        "tov": 2.3,
+        "fg": 45.1,
+        "three": 32.8,
+        "ft": 76.5
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c1-3",
+    "name": "Henry Vaughn",
+    "classId": "g11c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Post scorer.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 26.9,
+        "ppg": 11.8,
+        "rpg": 7.9,
+        "apg": 1.4,
+        "stl": 0.8,
+        "blk": 1.8,
+        "tov": 1.9,
+        "fg": 51.3,
+        "three": 22.7,
+        "ft": 68.7
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c1-4",
+    "name": "Noah Patel",
+    "classId": "g11c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Help defender.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 23.8,
+        "ppg": 7.5,
+        "rpg": 5.2,
+        "apg": 1.9,
+        "stl": 0.9,
+        "blk": 0.4,
+        "tov": 1.9,
+        "fg": 41.4,
+        "three": 28.6,
+        "ft": 73.7
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c1-5",
+    "name": "Eli Turner",
+    "classId": "g11c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Spot-up shooter.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 17.6,
+        "ppg": 6.8,
+        "rpg": 2.6,
+        "apg": 1.5,
+        "stl": 0.8,
+        "blk": 0.3,
+        "tov": 1.7,
+        "fg": 42.1,
+        "three": 27.4,
+        "ft": 72.8
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c2-1",
+    "name": "Mason Cruz",
+    "classId": "g11c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Attacking guard.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 31.4,
+        "ppg": 14.9,
+        "rpg": 3.0,
+        "apg": 4.7,
+        "stl": 1.9,
+        "blk": 0.3,
+        "tov": 3.1,
+        "fg": 45.7,
+        "three": 34.2,
+        "ft": 80.5
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c2-2",
+    "name": "Jack Porter",
+    "classId": "g11c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Cutters’ finisher.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 28.7,
+        "ppg": 12.4,
+        "rpg": 4.6,
+        "apg": 1.7,
+        "stl": 0.9,
+        "blk": 0.4,
+        "tov": 2.1,
+        "fg": 44.6,
+        "three": 32.3,
+        "ft": 75.3
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c2-3",
+    "name": "Dominic Shaw",
+    "classId": "g11c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Screen-and-roll big.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 26.9,
+        "ppg": 10.1,
+        "rpg": 8.2,
+        "apg": 1.3,
+        "stl": 0.8,
+        "blk": 1.8,
+        "tov": 1.8,
+        "fg": 50.5,
+        "three": 22.0,
+        "ft": 67.9
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c2-4",
+    "name": "Quinn Adler",
+    "classId": "g11c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "On-ball defender.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 23.8,
+        "ppg": 8.2,
+        "rpg": 3.8,
+        "apg": 2.3,
+        "stl": 1.0,
+        "blk": 0.3,
+        "tov": 2.0,
+        "fg": 41.7,
+        "three": 28.9,
+        "ft": 74.5
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g11c2-5",
+    "name": "Seth Morales",
+    "classId": "g11c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Secondary ball-handler.",
+    "stats": {
+      "basketball": {
+        "gp": 3,
+        "min": 17.6,
+        "ppg": 5.9,
+        "rpg": 2.4,
+        "apg": 3.1,
+        "stl": 1.2,
+        "blk": 0.3,
+        "tov": 2.2,
+        "fg": 41.7,
+        "three": 27.1,
+        "ft": 74.7
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c1-1",
+    "name": "Finn Gallagher",
+    "classId": "g10c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "First-year lead guard.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 31.4,
+        "ppg": 13.1,
+        "rpg": 2.7,
+        "apg": 4.4,
+        "stl": 1.9,
+        "blk": 0.3,
+        "tov": 3.0,
+        "fg": 44.9,
+        "three": 33.6,
+        "ft": 79.4
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c1-2",
+    "name": "Brody Lane",
+    "classId": "g10c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Transition scorer.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 28.7,
+        "ppg": 11.3,
+        "rpg": 3.9,
+        "apg": 1.6,
+        "stl": 0.9,
+        "blk": 0.3,
+        "tov": 2.0,
+        "fg": 44.1,
+        "three": 32.0,
+        "ft": 74.8
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c1-3",
+    "name": "Isaac Reed",
+    "classId": "g10c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Box-out specialist.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 26.9,
+        "ppg": 8.4,
+        "rpg": 7.1,
+        "apg": 0.9,
+        "stl": 0.7,
+        "blk": 1.7,
+        "tov": 1.6,
+        "fg": 49.8,
+        "three": 21.4,
+        "ft": 66.6
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c1-4",
+    "name": "Cole Harrington",
+    "classId": "g10c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Corner shooter.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 23.8,
+        "ppg": 7.1,
+        "rpg": 2.2,
+        "apg": 1.2,
+        "stl": 0.8,
+        "blk": 0.3,
+        "tov": 1.6,
+        "fg": 41.2,
+        "three": 28.5,
+        "ft": 72.5
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c1-5",
+    "name": "Wyatt Moss",
+    "classId": "g10c1",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Hustle wing.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 17.6,
+        "ppg": 5.4,
+        "rpg": 4.5,
+        "apg": 1.4,
+        "stl": 0.8,
+        "blk": 0.4,
+        "tov": 1.6,
+        "fg": 41.4,
+        "three": 26.9,
+        "ft": 72.1
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c2-1",
+    "name": "Jasper Quinn",
+    "classId": "g10c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Push-tempo guard.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 31.4,
+        "ppg": 12.6,
+        "rpg": 2.5,
+        "apg": 4.1,
+        "stl": 1.8,
+        "blk": 0.3,
+        "tov": 2.8,
+        "fg": 44.7,
+        "three": 33.4,
+        "ft": 78.8
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c2-2",
+    "name": "Nolan Ortiz",
+    "classId": "g10c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Drives and kick-outs.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 28.7,
+        "ppg": 10.8,
+        "rpg": 3.6,
+        "apg": 2.5,
+        "stl": 1.1,
+        "blk": 0.3,
+        "tov": 2.2,
+        "fg": 43.9,
+        "three": 31.8,
+        "ft": 75.8
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c2-3",
+    "name": "Rowan Ellis",
+    "classId": "g10c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Paint presence.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 26.9,
+        "ppg": 9.2,
+        "rpg": 6.8,
+        "apg": 0.8,
+        "stl": 0.7,
+        "blk": 1.7,
+        "tov": 1.6,
+        "fg": 50.1,
+        "three": 21.7,
+        "ft": 66.8
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c2-4",
+    "name": "Kai Henderson",
+    "classId": "g10c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Help-side rebounder.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 23.8,
+        "ppg": 6.5,
+        "rpg": 5.1,
+        "apg": 1.0,
+        "stl": 0.7,
+        "blk": 0.4,
+        "tov": 1.5,
+        "fg": 40.9,
+        "three": 28.3,
+        "ft": 72.0
+      }
+    }
+  },
+  {
+    "id": "demo-bb-p-g10c2-5",
+    "name": "Felix Moore",
+    "classId": "g10c2",
+    "sports": [
+      "basketball"
+    ],
+    "bio": "Bench organizer.",
+    "stats": {
+      "basketball": {
+        "gp": 2,
+        "min": 17.6,
+        "ppg": 4.8,
+        "rpg": 2.1,
+        "apg": 2.8,
+        "stl": 1.1,
+        "blk": 0.3,
+        "tov": 2.0,
+        "fg": 41.2,
+        "three": 26.7,
+        "ft": 73.8
+      }
+    }
+  }
 ]

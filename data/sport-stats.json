@@ -1,9 +1,9 @@
 [
-  { "id": "demo-bb-st-pts-1", "sport": "basketball", "name": "林启航", "label": "PPG", "value": 18.4 },
-  { "id": "demo-bb-st-pts-2", "sport": "basketball", "name": "黄子谦", "label": "PPG", "value": 16.8 },
-  { "id": "demo-bb-st-pts-3", "sport": "basketball", "name": "赵予安", "label": "PPG", "value": 15.7 },
-  { "id": "demo-bb-st-reb-1", "sport": "basketball", "name": "周景行", "label": "RPG", "value": 9.1 },
-  { "id": "demo-bb-st-reb-2", "sport": "basketball", "name": "孙嘉树", "label": "RPG", "value": 8.6 },
-  { "id": "demo-bb-st-ast-1", "sport": "basketball", "name": "林启航", "label": "APG", "value": 6.2 },
-  { "id": "demo-bb-st-ast-2", "sport": "basketball", "name": "黄子谦", "label": "APG", "value": 5.8 }
+  { "id": "demo-bb-st-pts-1", "sport": "basketball", "name": "Leo Hart", "label": "PPG", "value": 18.4 },
+  { "id": "demo-bb-st-pts-2", "sport": "basketball", "name": "Ethan Cole", "label": "PPG", "value": 16.8 },
+  { "id": "demo-bb-st-pts-3", "sport": "basketball", "name": "Ryan Walsh", "label": "PPG", "value": 15.7 },
+  { "id": "demo-bb-st-reb-1", "sport": "basketball", "name": "Marcus Hale", "label": "RPG", "value": 9.1 },
+  { "id": "demo-bb-st-reb-2", "sport": "basketball", "name": "Caleb Stone", "label": "RPG", "value": 8.6 },
+  { "id": "demo-bb-st-ast-1", "sport": "basketball", "name": "Leo Hart", "label": "APG", "value": 6.2 },
+  { "id": "demo-bb-st-ast-2", "sport": "basketball", "name": "Ethan Cole", "label": "APG", "value": 5.8 }
 ]

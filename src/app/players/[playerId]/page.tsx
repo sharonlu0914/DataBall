@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPlayer, getClass } from "@/data/queries";
 import { sportLabel } from "@/lib/sports";
+import { statLabel } from "@/lib/stat-columns";
 import { Card, PageHeader } from "@/components/Ui";
 import { isEditor } from "@/lib/auth";
 import { EditPlayerForm } from "@/components/LeagueEditors";
@@ -39,7 +40,7 @@ export default async function PlayerPage({ params }: Props) {
             <dl className="mt-3 grid grid-cols-2 gap-2 text-sm">
               {Object.entries(player.stats[sport] ?? {}).map(([k, v]) => (
                 <div key={k}>
-                  <dt className="uppercase tracking-widest text-berkeley/50">{k}</dt>
+                  <dt className="uppercase tracking-widest text-berkeley/50">{statLabel(k)}</dt>
                   <dd className="text-2xl font-semibold">{v}</dd>
                 </div>
               ))}
