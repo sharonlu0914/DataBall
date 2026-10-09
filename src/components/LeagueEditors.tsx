@@ -30,20 +30,20 @@ export function MatchBox({
     return (
       <div className="flex items-center justify-between gap-3 px-3 py-2">
         {team ? (
-          <Link href={`/classes/${team.classId}`} className="font-semibold hover:text-gold-dark">
+          <Link href={`/classes/${team.classId}`} className="min-w-0 truncate font-semibold hover:text-gold-dark">
             {label}
           </Link>
         ) : (
           <span className="font-semibold text-berkeley/40">{label}</span>
         )}
-        <Link href={`/sports/${match.sport}/matches/${match.id}`} className="tabular-nums font-semibold hover:underline">
+        <Link href={`/sports/${match.sport}/matches/${match.id}`} className="shrink-0 tabular-nums font-semibold hover:underline">
           {score ?? "–"}
         </Link>
       </div>
     );
   }
   return (
-    <div className="w-full min-w-[220px] overflow-hidden rounded border border-black/15 bg-white text-sm shadow-sm">
+    <div className="w-full min-w-0 overflow-hidden rounded border border-black/15 bg-white text-sm shadow-sm">
       <div className="border-b border-black/10">{row(teamA, match.scoreA)}</div>
       {row(teamB, match.scoreB)}
     </div>

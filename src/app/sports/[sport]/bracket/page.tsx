@@ -90,31 +90,26 @@ export default async function BracketPage({ params }: Props) {
         ) : null}
       </div>
 
-      <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(280px,1.1fr)_minmax(0,1fr)]">
+      <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(220px,0.85fr)_minmax(0,1fr)]">
         <GroupPanel sport={sport} group="A" games={groupA} />
 
-        <section className="space-y-5">
+        <section className="min-w-0 space-y-4">
           <p className="label-ui text-center text-[0.75rem] text-gold-dark">Knockout</p>
-          <div className="grid items-center gap-4 sm:grid-cols-[1fr_auto_1fr]">
-            <div className="space-y-3">
-              <p className="text-center text-xs uppercase tracking-widest text-berkeley/45">Semifinal</p>
-              {semis[0] ? (
-                <MatchBox match={semis[0]} teamA={getTeam(semis[0].teamAId)} teamB={getTeam(semis[0].teamBId)} />
-              ) : (
-                <p className="text-center text-sm text-berkeley/50">A1 vs B2</p>
-              )}
-            </div>
-            <div className="hidden h-px bg-black/20 sm:block sm:h-24 sm:w-px sm:justify-self-center" />
-            <div className="space-y-3">
-              <p className="text-center text-xs uppercase tracking-widest text-berkeley/45">Semifinal</p>
-              {semis[1] ? (
-                <MatchBox match={semis[1]} teamA={getTeam(semis[1].teamAId)} teamB={getTeam(semis[1].teamBId)} />
-              ) : (
-                <p className="text-center text-sm text-berkeley/50">B1 vs A2</p>
-              )}
-            </div>
+          <div className="space-y-3">
+            <p className="text-center text-xs uppercase tracking-widest text-berkeley/45">Semifinal · A1 vs B2</p>
+            {semis[0] ? (
+              <MatchBox match={semis[0]} teamA={getTeam(semis[0].teamAId)} teamB={getTeam(semis[0].teamBId)} />
+            ) : (
+              <p className="text-center text-sm text-berkeley/50">A1 vs B2</p>
+            )}
+            <p className="text-center text-xs uppercase tracking-widest text-berkeley/45">Semifinal · B1 vs A2</p>
+            {semis[1] ? (
+              <MatchBox match={semis[1]} teamA={getTeam(semis[1].teamAId)} teamB={getTeam(semis[1].teamBId)} />
+            ) : (
+              <p className="text-center text-sm text-berkeley/50">B1 vs A2</p>
+            )}
           </div>
-          <div className="mx-auto max-w-sm space-y-3 rounded-xl border-2 border-berkeley bg-white p-4">
+          <div className="space-y-3 rounded-xl border-2 border-berkeley bg-white p-4">
             <p className="label-ui text-center text-[0.7rem] text-gold-dark">Championship</p>
             {final ? (
               <MatchBox match={final} teamA={getTeam(final.teamAId)} teamB={getTeam(final.teamBId)} />
