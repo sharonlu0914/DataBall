@@ -1,0 +1,86 @@
+[
+  {
+    "id": "demo-bb-g12c1",
+    "sport": "basketball",
+    "classId": "g12c1",
+    "name": "G12C1",
+    "group": "A",
+    "playerIds": [
+      "demo-bb-p-g12c1-1",
+      "demo-bb-p-g12c1-2",
+      "demo-bb-p-g12c1-3",
+      "demo-bb-p-g12c1-4",
+      "demo-bb-p-g12c1-5"
+    ]
+  },
+  {
+    "id": "demo-bb-g11c1",
+    "sport": "basketball",
+    "classId": "g11c1",
+    "name": "G11C1",
+    "group": "A",
+    "playerIds": [
+      "demo-bb-p-g11c1-1",
+      "demo-bb-p-g11c1-2",
+      "demo-bb-p-g11c1-3",
+      "demo-bb-p-g11c1-4",
+      "demo-bb-p-g11c1-5"
+    ]
+  },
+  {
+    "id": "demo-bb-g10c1",
+    "sport": "basketball",
+    "classId": "g10c1",
+    "name": "G10C1",
+    "group": "A",
+    "playerIds": [
+      "demo-bb-p-g10c1-1",
+      "demo-bb-p-g10c1-2",
+      "demo-bb-p-g10c1-3",
+      "demo-bb-p-g10c1-4",
+      "demo-bb-p-g10c1-5"
+    ]
+  },
+  {
+    "id": "demo-bb-g12c2",
+    "sport": "basketball",
+    "classId": "g12c2",
+    "name": "G12C2",
+    "group": "B",
+    "playerIds": [
+      "demo-bb-p-g12c2-1",
+      "demo-bb-p-g12c2-2",
+      "demo-bb-p-g12c2-3",
+      "demo-bb-p-g12c2-4",
+      "demo-bb-p-g12c2-5"
+    ]
+  },
+  {
+    "id": "demo-bb-g11c2",
+    "sport": "basketball",
+    "classId": "g11c2",
+    "name": "G11C2",
+    "group": "B",
+    "playerIds": [
+      "demo-bb-p-g11c2-1",
+      "demo-bb-p-g11c2-2",
+      "demo-bb-p-g11c2-3",
+      "demo-bb-p-g11c2-4",
+      "demo-bb-p-g11c2-5"
+    ]
+  },
+  {
+    "id": "demo-bb-g10c2",
+    "sport": "basketball",
+    "classId": "g10c2",
+    "name": "G10C2",
+    "group": "B",
+    "playerIds": [
+      "demo-bb-p-g10c2-1",
+      "demo-bb-p-g10c2-2",
+      "demo-bb-p-g10c2-3",
+      "demo-bb-p-g10c2-4",
+      "demo-bb-p-g10c2-5"
+    ]
+  }
+]

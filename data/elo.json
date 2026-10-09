@@ -1,0 +1,14 @@
+{
+  "params": {},
+  "games": [
+    { "id": "demo-bb-elo-1", "sport": "basketball", "winnerId": "demo-bb-g12c1", "loserId": "demo-bb-g11c1", "note": "Group A" },
+    { "id": "demo-bb-elo-2", "sport": "basketball", "winnerId": "demo-bb-g12c1", "loserId": "demo-bb-g10c1", "note": "Group A" },
+    { "id": "demo-bb-elo-3", "sport": "basketball", "winnerId": "demo-bb-g11c1", "loserId": "demo-bb-g10c1", "note": "Group A" },
+    { "id": "demo-bb-elo-4", "sport": "basketball", "winnerId": "demo-bb-g12c2", "loserId": "demo-bb-g11c2", "note": "Group B" },
+    { "id": "demo-bb-elo-5", "sport": "basketball", "winnerId": "demo-bb-g12c2", "loserId": "demo-bb-g10c2", "note": "Group B" },
+    { "id": "demo-bb-elo-6", "sport": "basketball", "winnerId": "demo-bb-g11c2", "loserId": "demo-bb-g10c2", "note": "Group B" },
+    { "id": "demo-bb-elo-7", "sport": "basketball", "winnerId": "demo-bb-g12c1", "loserId": "demo-bb-g11c2", "note": "Semifinal" },
+    { "id": "demo-bb-elo-8", "sport": "basketball", "winnerId": "demo-bb-g12c2", "loserId": "demo-bb-g11c1", "note": "Semifinal" },
+    { "id": "demo-bb-elo-9", "sport": "basketball", "winnerId": "demo-bb-g12c1", "loserId": "demo-bb-g12c2", "note": "Final" }
+  ]
+}

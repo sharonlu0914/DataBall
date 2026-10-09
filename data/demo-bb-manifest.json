@@ -1,0 +1,8 @@
+{
+  "note": "Campaign sample basketball data. Not shown in the UI. Delete everything listed here when asked to remove fake basketball data. Do not touch Sports Day records or existing classes.",
+  "idPrefix": "demo-bb-",
+  "newsSlugs": [
+    "g12c1-holds-on-in-the-final",
+    "group-a-g12c1-stays-unbeaten"
+  ]
+}

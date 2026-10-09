@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { isEditor } from "@/lib/auth";
 import { deleteNews, getNews, saveNewsPost } from "@/lib/news-store";
-import type { NewsBlock, NewsPost } from "@/lib/types";
+import type { NewsBlock, NewsPost, Sport } from "@/lib/types";
+import { SPORTS } from "@/lib/types";
 
 function isBlock(value: unknown): value is NewsBlock {
   if (!value || typeof value !== "object") return false;
@@ -18,6 +19,7 @@ function fromPayload(payload: {
   blocks?: unknown[];
   slug?: string;
   date?: string;
+  sport?: Sport;
 }): NewsPost | null {
   const title = String(payload.title ?? "").trim();
   const coverUrl = String(payload.coverUrl ?? "").trim();
@@ -38,6 +40,7 @@ function fromPayload(payload: {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-|-$/g, "")}-${Date.now().toString().slice(-4)}`;
+  const sport = payload.sport && (SPORTS as readonly string[]).includes(payload.sport) ? payload.sport : undefined;
   return {
     slug,
     title,
@@ -45,6 +48,7 @@ function fromPayload(payload: {
     body: text,
     coverUrl: coverUrl || undefined,
     blocks,
+    sport,
     date: payload.date || new Date().toISOString().slice(0, 10),
   };
 }
@@ -65,12 +69,18 @@ export async function PUT(request: Request) {
     excerpt?: string;
     coverUrl?: string;
     blocks?: unknown[];
+    sport?: Sport;
   };
   if (!payload.slug || !getNews(payload.slug)) {
     return NextResponse.json({ error: "Missing story" }, { status: 404 });
   }
   const existing = getNews(payload.slug)!;
-  const post = fromPayload({ ...payload, date: existing.date, slug: existing.slug });
+  const post = fromPayload({
+    ...payload,
+    date: existing.date,
+    slug: existing.slug,
+    sport: payload.sport ?? existing.sport,
+  });
   if (!post) return NextResponse.json({ error: "Title and body required" }, { status: 400 });
   saveNewsPost(post);
   return NextResponse.json({ slug: post.slug });

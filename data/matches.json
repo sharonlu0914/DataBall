@@ -1,0 +1,102 @@
+[
+  {
+    "id": "demo-bb-m-final",
+    "sport": "basketball",
+    "round": "Final",
+    "date": "2026-10-08",
+    "teamAId": "demo-bb-g12c1",
+    "teamBId": "demo-bb-g12c2",
+    "scoreA": 59,
+    "scoreB": 56,
+    "notes": "G12C1 closed it at the line in the last minute.",
+    "boxScore": [
+      { "playerId": "demo-bb-p-g12c1-1", "label": "PTS", "value": 21 },
+      { "playerId": "demo-bb-p-g12c1-2", "label": "PTS", "value": 14 },
+      { "playerId": "demo-bb-p-g12c1-3", "label": "REB", "value": 11 },
+      { "playerId": "demo-bb-p-g12c2-1", "label": "PTS", "value": 18 },
+      { "playerId": "demo-bb-p-g12c2-3", "label": "REB", "value": 10 }
+    ]
+  },
+  {
+    "id": "demo-bb-m-sf1",
+    "sport": "basketball",
+    "round": "Semifinal",
+    "date": "2026-10-02",
+    "teamAId": "demo-bb-g12c1",
+    "teamBId": "demo-bb-g11c2",
+    "scoreA": 54,
+    "scoreB": 46,
+    "notes": "A1 vs B2."
+  },
+  {
+    "id": "demo-bb-m-sf2",
+    "sport": "basketball",
+    "round": "Semifinal",
+    "date": "2026-10-02",
+    "teamAId": "demo-bb-g12c2",
+    "teamBId": "demo-bb-g11c1",
+    "scoreA": 57,
+    "scoreB": 53,
+    "notes": "B1 vs A2."
+  },
+  {
+    "id": "demo-bb-m-ga1",
+    "sport": "basketball",
+    "round": "Group A",
+    "date": "2026-09-18",
+    "teamAId": "demo-bb-g12c1",
+    "teamBId": "demo-bb-g11c1",
+    "scoreA": 58,
+    "scoreB": 51
+  },
+  {
+    "id": "demo-bb-m-ga2",
+    "sport": "basketball",
+    "round": "Group A",
+    "date": "2026-09-22",
+    "teamAId": "demo-bb-g12c1",
+    "teamBId": "demo-bb-g10c1",
+    "scoreA": 62,
+    "scoreB": 44
+  },
+  {
+    "id": "demo-bb-m-ga3",
+    "sport": "basketball",
+    "round": "Group A",
+    "date": "2026-09-25",
+    "teamAId": "demo-bb-g11c1",
+    "teamBId": "demo-bb-g10c1",
+    "scoreA": 49,
+    "scoreB": 47
+  },
+  {
+    "id": "demo-bb-m-gb1",
+    "sport": "basketball",
+    "round": "Group B",
+    "date": "2026-09-18",
+    "teamAId": "demo-bb-g12c2",
+    "teamBId": "demo-bb-g11c2",
+    "scoreA": 55,
+    "scoreB": 50
+  },
+  {
+    "id": "demo-bb-m-gb2",
+    "sport": "basketball",
+    "round": "Group B",
+    "date": "2026-09-22",
+    "teamAId": "demo-bb-g12c2",
+    "teamBId": "demo-bb-g10c2",
+    "scoreA": 61,
+    "scoreB": 48
+  },
+  {
+    "id": "demo-bb-m-gb3",
+    "sport": "basketball",
+    "round": "Group B",
+    "date": "2026-09-25",
+    "teamAId": "demo-bb-g11c2",
+    "teamBId": "demo-bb-g10c2",
+    "scoreA": 52,
+    "scoreB": 41
+  }
+]

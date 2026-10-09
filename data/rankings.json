@@ -1,0 +1,10 @@
+{
+  "basketball": [
+    { "teamId": "demo-bb-g12c1", "wins": 4, "losses": 0, "pointsFor": 233, "pointsAgainst": 197, "elo": 1124 },
+    { "teamId": "demo-bb-g12c2", "wins": 3, "losses": 1, "pointsFor": 229, "pointsAgainst": 210, "elo": 1091 },
+    { "teamId": "demo-bb-g11c1", "wins": 1, "losses": 2, "pointsFor": 153, "pointsAgainst": 162, "elo": 1012 },
+    { "teamId": "demo-bb-g11c2", "wins": 1, "losses": 2, "pointsFor": 148, "pointsAgainst": 150, "elo": 1004 },
+    { "teamId": "demo-bb-g10c1", "wins": 0, "losses": 2, "pointsFor": 91, "pointsAgainst": 111, "elo": 968 },
+    { "teamId": "demo-bb-g10c2", "wins": 0, "losses": 2, "pointsFor": 89, "pointsAgainst": 113, "elo": 961 }
+  ]
+}
