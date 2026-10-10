@@ -6,6 +6,7 @@ import { widgetCatalog } from "@/lib/widget-catalog";
 import { WidgetEditor } from "@/components/WidgetEditor";
 import {
   BracketsWidget,
+  EloPickWidget,
   NewsWidget,
   NoteWidget,
   ResultsWidget,
@@ -14,7 +15,7 @@ import {
 
 function defaultTitle(widget: HomeWidget, slateHeading: string) {
   if (widget.title?.trim()) return widget.title;
-  if (widget.type === "schedule" || widget.type === "elo") return slateHeading;
+  if (widget.type === "schedule") return slateHeading;
   return widgetCatalog.find((item) => item.type === widget.type)?.label ?? widget.type;
 }
 
@@ -31,6 +32,7 @@ function WidgetBody({
 }) {
   switch (widget.type) {
     case "elo":
+      return <EloPickWidget widget={widget} matches={matches} />;
     case "schedule":
       return <ScheduleWidget widget={widget} slate={slate} matches={matches} />;
     case "news":

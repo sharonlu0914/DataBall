@@ -1,6 +1,6 @@
 import { allMatches, getTeam, teamsForSport } from "@/lib/league-store";
 import { eloGamesFor, eloParamsFor } from "@/lib/elo-store";
-import { computeElo, winProbability } from "@/lib/elo";
+import { computeElo, h2hNote, predictionTake, winProbability } from "@/lib/elo";
 import { SPORTS, type HomeMatchCard, type Match, type Sport } from "@/lib/types";
 
 function ratings() {
@@ -21,6 +21,8 @@ function toCard(match: Match, pack: ReturnType<typeof ratings>): HomeMatchCard {
   const eloA = elo[match.teamAId] ?? 1000;
   const eloB = elo[match.teamBId] ?? 1000;
   const pctA = winProbability(eloA, eloB, c);
+  const nameA = a?.name ?? "TBD";
+  const nameB = b?.name ?? "TBD";
   return {
     id: match.id,
     sport: match.sport,
@@ -28,14 +30,24 @@ function toCard(match: Match, pack: ReturnType<typeof ratings>): HomeMatchCard {
     date: match.date,
     teamAId: match.teamAId,
     teamBId: match.teamBId,
-    teamAName: a?.name ?? "TBD",
-    teamBName: b?.name ?? "TBD",
+    teamAName: nameA,
+    teamBName: nameB,
     classAId: a?.classId,
     classBId: b?.classId,
     scoreA: match.scoreA,
     scoreB: match.scoreB,
     pctA,
     pctB: 1 - pctA,
+    eloA,
+    eloB,
+    comment: predictionTake({
+      nameA,
+      nameB,
+      pctA,
+      h2h: h2hNote(match.teamAId, match.teamBId, eloGamesFor(match.sport), nameA, nameB),
+      scoreA: match.scoreA,
+      scoreB: match.scoreB,
+    }),
   };
 }
 

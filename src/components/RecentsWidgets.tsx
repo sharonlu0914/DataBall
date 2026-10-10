@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Card } from "@/components/Ui";
+import { EloPickInner } from "@/components/EloPrediction";
 import type { HomeMatchCard, HomeWidget, HomeWidgetLink } from "@/lib/types";
 import { sportLabel } from "@/lib/sports";
 
@@ -74,6 +75,16 @@ export function ScheduleWidget({
           })}
         </ul>
       )}
+    </Card>
+  );
+}
+
+export function EloPickWidget({ widget, matches }: { widget: HomeWidget; matches: HomeMatchCard[] }) {
+  const pool = picked(widget.matchIds, matches) ?? matches;
+  return (
+    <Card>
+      <NoteLine note={widget.note} />
+      <EloPickInner matches={pool} />
     </Card>
   );
 }

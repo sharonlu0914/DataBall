@@ -23,7 +23,9 @@ function MatchPicker({
   return (
     <div>
       <p className="label-ui text-[0.65rem] text-berkeley/55">Matches</p>
-      <p className="mt-1 text-xs text-berkeley/50">Leave empty to use today’s (or the next) slate.</p>
+      <p className="mt-1 text-xs text-berkeley/50">
+        Leave empty to use today’s (or the next) slate — or every match, if this is an Elo pick widget.
+      </p>
       {matches.length === 0 ? <p className="mt-2 text-xs text-berkeley/45">No matches logged yet.</p> : null}
       <ul className="mt-2 max-h-48 space-y-1 overflow-auto text-sm">
         {matches.map((match) => {

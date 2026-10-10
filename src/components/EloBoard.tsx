@@ -11,6 +11,7 @@ import {
   matchupComment,
   winProbability,
 } from "@/lib/elo";
+import { EloOutcome, PredictButton } from "@/components/EloPrediction";
 import type { EloGame, EloParams, SchoolClass, Sport, Team } from "@/lib/types";
 
 function shortName(team?: Team) {
@@ -37,6 +38,7 @@ export function EloBoard({
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [predA, setPredA] = useState(teams[0]?.id ?? "");
   const [predB, setPredB] = useState(teams[1]?.id ?? teams[0]?.id ?? "");
+  const [revealed, setRevealed] = useState(false);
   const [k, setK] = useState(String(params.k));
   const [c, setC] = useState(String(params.c));
 
@@ -176,7 +178,14 @@ export function EloBoard({
           <div className="grid items-end gap-3 sm:grid-cols-[1fr_auto_1fr]">
             <label className="text-sm">
               <span className="label-ui text-[0.65rem] text-berkeley/45">Team one</span>
-              <select className="mt-1 w-full rounded-lg border border-berkeley/15 px-3 py-2" value={predA} onChange={(e) => setPredA(e.target.value)}>
+              <select
+                className="mt-1 w-full rounded-lg border border-berkeley/15 px-3 py-2"
+                value={predA}
+                onChange={(e) => {
+                  setPredA(e.target.value);
+                  setRevealed(false);
+                }}
+              >
                 {teams.map((team) => (
                   <option key={team.id} value={team.id}>
                     {shortName(team)}
@@ -187,7 +196,14 @@ export function EloBoard({
             <p className="label-ui pb-3 text-center text-[0.7rem] text-berkeley/35">VS</p>
             <label className="text-sm">
               <span className="label-ui text-[0.65rem] text-berkeley/45">Team two</span>
-              <select className="mt-1 w-full rounded-lg border border-berkeley/15 px-3 py-2" value={predB} onChange={(e) => setPredB(e.target.value)}>
+              <select
+                className="mt-1 w-full rounded-lg border border-berkeley/15 px-3 py-2"
+                value={predB}
+                onChange={(e) => {
+                  setPredB(e.target.value);
+                  setRevealed(false);
+                }}
+              >
                 {teams.map((team) => (
                   <option key={team.id} value={team.id}>
                     {shortName(team)}
@@ -197,14 +213,31 @@ export function EloBoard({
             </label>
           </div>
           {predA && predB && predA !== predB ? (
-            <Prediction
-              nameA={shortName(teamMap.get(predA))}
-              nameB={shortName(teamMap.get(predB))}
-              eloA={elo[predA] ?? 1000}
-              eloB={elo[predB] ?? 1000}
-              c={params.c}
-              comment={matchupComment(predA, predB, games, elo[predA] ?? 1000, elo[predB] ?? 1000)}
-            />
+            <>
+              <PredictButton disabled={revealed} onClick={() => setRevealed(true)} />
+              {revealed ? (
+                <EloOutcome
+                  nameA={shortName(teamMap.get(predA))}
+                  nameB={shortName(teamMap.get(predB))}
+                  eloA={elo[predA] ?? 1000}
+                  eloB={elo[predB] ?? 1000}
+                  pctA={winProbability(elo[predA] ?? 1000, elo[predB] ?? 1000, params.c)}
+                  pctB={1 - winProbability(elo[predA] ?? 1000, elo[predB] ?? 1000, params.c)}
+                  comment={matchupComment(
+                    predA,
+                    predB,
+                    games,
+                    elo[predA] ?? 1000,
+                    elo[predB] ?? 1000,
+                    shortName(teamMap.get(predA)),
+                    shortName(teamMap.get(predB)),
+                    params.c,
+                  )}
+                />
+              ) : (
+                <p className="mt-3 text-sm text-berkeley/50">Pick two sides, then hit Predict.</p>
+              )}
+            </>
           ) : (
             <p className="mt-4 text-sm text-berkeley/50">Pick two different teams.</p>
           )}
@@ -369,55 +402,6 @@ export function EloBoard({
           })
         )}
       </section>
-    </div>
-  );
-}
-
-function Prediction({
-  nameA,
-  nameB,
-  eloA,
-  eloB,
-  c,
-  comment,
-}: {
-  nameA: string;
-  nameB: string;
-  eloA: number;
-  eloB: number;
-  c: number;
-  comment: string;
-}) {
-  const pA = winProbability(eloA, eloB, c);
-  const pctA = Math.round(pA * 1000) / 10;
-  const pctB = Math.round((1 - pA) * 1000) / 10;
-  return (
-    <div className="mt-5 border-t border-berkeley/10 pt-4">
-      <p className="rounded-md bg-gold/20 px-3 py-2 text-sm">{comment}</p>
-      <div className="mt-3 flex justify-between font-mono text-xs text-berkeley/50">
-        <span>
-          {nameA}: {eloA}
-        </span>
-        <span>
-          {nameB}: {eloB}
-        </span>
-      </div>
-      <div className="mt-2 flex h-7 overflow-hidden rounded">
-        <div className="flex items-center justify-center bg-berkeley font-mono text-xs font-bold text-gold" style={{ width: `${pctA}%` }}>
-          {pctA >= 12 ? `${pctA}%` : ""}
-        </div>
-        <div className="flex items-center justify-center bg-berkeley/35 font-mono text-xs font-bold text-berkeley" style={{ width: `${pctB}%` }}>
-          {pctB >= 12 ? `${pctB}%` : ""}
-        </div>
-      </div>
-      <div className="mt-2 flex justify-between text-xs text-berkeley/55">
-        <span>
-          {nameA} {pctA}%
-        </span>
-        <span>
-          {nameB} {pctB}%
-        </span>
-      </div>
     </div>
   );
 }

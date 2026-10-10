@@ -99,31 +99,79 @@ export function formComment(row: EloBoardRow, rank: number, total: number, recen
   return "Split results. Matchup-dependent.";
 }
 
+export function h2hNote(teamAId: string, teamBId: string, games: EloGame[], nameA: string, nameB: string) {
+  const h2h = games.filter(
+    (g) =>
+      (g.winnerId === teamAId && g.loserId === teamBId) ||
+      (g.winnerId === teamBId && g.loserId === teamAId),
+  );
+  if (h2h.length === 0) return "first meeting on the board";
+  const aWins = h2h.filter((g) => g.winnerId === teamAId).length;
+  const bWins = h2h.length - aWins;
+  if (h2h.length >= 3 && aWins === h2h.length) return `${nameA} has taken all ${h2h.length} prior meetings`;
+  if (h2h.length >= 3 && bWins === h2h.length) return `${nameB} has taken all ${h2h.length} prior meetings`;
+  if (h2h.length === 2 && aWins === 1) return "they split the last two";
+  if (aWins > bWins) return `${nameA} leads the H2H ${aWins}–${bWins}`;
+  if (bWins > aWins) return `${nameB} leads the H2H ${bWins}–${aWins}`;
+  return `even in ${h2h.length} prior games`;
+}
+
+export function predictionTake({
+  nameA,
+  nameB,
+  pctA,
+  h2h,
+  scoreA,
+  scoreB,
+}: {
+  nameA: string;
+  nameB: string;
+  pctA: number;
+  h2h?: string;
+  scoreA?: number | null;
+  scoreB?: number | null;
+}) {
+  const leanA = pctA >= 0.5;
+  const fav = leanA ? nameA : nameB;
+  const dog = leanA ? nameB : nameA;
+  const pct = Math.round(Math.max(pctA, 1 - pctA) * 1000) / 10;
+  const tape = h2h ? ` (${h2h})` : "";
+  let take: string;
+  if (pct < 52.5) {
+    take = `${nameA} and ${nameB} are a coin flip at ${pct}% either way${tape} — one run, one miss, and the night flips.`;
+  } else if (pct < 58) {
+    take = `Slight lean to ${fav} at ${pct}%${tape}. ${dog} is a hot stretch away from stealing it.`;
+  } else if (pct < 66) {
+    take = `${fav} is the pick at ${pct}%${tape}, but this still has to be won — ${dog} lives in the messy version of the game.`;
+  } else if (pct < 75) {
+    take = `Elo likes ${fav} at ${pct}%${tape}. ${dog} needs chaos: long droughts, extra possessions, a game that refuses to settle.`;
+  } else {
+    take = `${fav} is a heavy favorite at ${pct}%${tape}. Upset watch only if ${dog} punches first and never lets the favorite breathe.`;
+  }
+  if (scoreA == null || scoreB == null) return take;
+  const actualA = scoreA > scoreB;
+  const favoredWon = actualA === leanA;
+  if (favoredWon) {
+    return `${take} The scoreboard agreed: ${scoreA}–${scoreB}.`;
+  }
+  return `${take} The scoreboard did not: ${nameA} ${scoreA}–${scoreB} ${nameB}.`;
+}
+
 export function matchupComment(
   teamAId: string,
   teamBId: string,
   games: EloGame[],
   eloA: number,
   eloB: number,
+  nameA: string,
+  nameB: string,
+  c: number,
 ) {
-  const h2h = games.filter(
-    (g) =>
-      (g.winnerId === teamAId && g.loserId === teamBId) ||
-      (g.winnerId === teamBId && g.loserId === teamAId),
-  );
-  const aWins = h2h.filter((g) => g.winnerId === teamAId).length;
-  const bWins = h2h.length - aWins;
-  const gap = Math.abs(eloA - eloB);
-  if (h2h.length === 0) {
-    return gap >= 40
-      ? "First meeting, and the ratings are not close."
-      : "First meeting. Little on tape besides the rating.";
-  }
-  if (h2h.length >= 3 && (aWins === h2h.length || bWins === h2h.length)) {
-    return `One side has taken all ${h2h.length} prior meetings.`;
-  }
-  if (h2h.length === 2 && aWins === 1) return "Split the last two. This one breaks the tie.";
-  if (aWins > bWins) return `H2H sits ${aWins}–${bWins}.`;
-  if (bWins > aWins) return `H2H sits ${bWins}–${aWins} the other way.`;
-  return `Even in ${h2h.length} prior games.`;
+  const pctA = winProbability(eloA, eloB, c);
+  return predictionTake({
+    nameA,
+    nameB,
+    pctA,
+    h2h: h2hNote(teamAId, teamBId, games, nameA, nameB),
+  });
 }

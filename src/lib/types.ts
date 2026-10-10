@@ -137,6 +137,9 @@ export type HomeMatchCard = {
   scoreB: number | null;
   pctA: number;
   pctB: number;
+  eloA: number;
+  eloB: number;
+  comment: string;
 };
 
 export const HOME_WIDGET_TYPES = ["elo", "schedule", "news", "results", "brackets", "note"] as const;

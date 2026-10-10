@@ -9,7 +9,13 @@
   },
   {
     "id": "elo-554740",
-    "type": "elo",
+    "type": "schedule",
     "size": "wide"
+  },
+  {
+    "id": "elo-pick-1010",
+    "type": "elo",
+    "size": "wide",
+    "title": "Elo pick"
   }
 ]
