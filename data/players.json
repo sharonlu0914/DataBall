@@ -1,7 +1,7 @@
 [
   {
     "id": "demo-bb-p-g12c1-1",
-    "name": "Leo Hart",
+    "name": "Leo",
     "classId": "g12c1",
     "sports": [
       "basketball"
@@ -25,7 +25,7 @@
   },
   {
     "id": "demo-bb-p-g12c1-2",
-    "name": "Ryan Walsh",
+    "name": "Ryan",
     "classId": "g12c1",
     "sports": [
       "basketball"
@@ -49,7 +49,7 @@
   },
   {
     "id": "demo-bb-p-g12c1-3",
-    "name": "Marcus Hale",
+    "name": "Marcus",
     "classId": "g12c1",
     "sports": [
       "basketball"
@@ -73,7 +73,7 @@
   },
   {
     "id": "demo-bb-p-g12c1-4",
-    "name": "Nathan Brooks",
+    "name": "Nathan",
     "classId": "g12c1",
     "sports": [
       "basketball"
@@ -97,7 +97,7 @@
   },
   {
     "id": "demo-bb-p-g12c1-5",
-    "name": "Owen Clarke",
+    "name": "Owen",
     "classId": "g12c1",
     "sports": [
       "basketball"
@@ -121,7 +121,7 @@
   },
   {
     "id": "demo-bb-p-g12c2-1",
-    "name": "Ethan Cole",
+    "name": "Ethan",
     "classId": "g12c2",
     "sports": [
       "basketball"
@@ -145,7 +145,7 @@
   },
   {
     "id": "demo-bb-p-g12c2-2",
-    "name": "Julian Reyes",
+    "name": "Julian",
     "classId": "g12c2",
     "sports": [
       "basketball"
@@ -169,7 +169,7 @@
   },
   {
     "id": "demo-bb-p-g12c2-3",
-    "name": "Caleb Stone",
+    "name": "Caleb",
     "classId": "g12c2",
     "sports": [
       "basketball"
@@ -193,7 +193,7 @@
   },
   {
     "id": "demo-bb-p-g12c2-4",
-    "name": "Miles Grant",
+    "name": "Miles",
     "classId": "g12c2",
     "sports": [
       "basketball"
@@ -217,7 +217,7 @@
   },
   {
     "id": "demo-bb-p-g12c2-5",
-    "name": "Theo Bennett",
+    "name": "Theo",
     "classId": "g12c2",
     "sports": [
       "basketball"
@@ -241,7 +241,7 @@
   },
   {
     "id": "demo-bb-p-g11c1-1",
-    "name": "Aaron Blake",
+    "name": "Aaron",
     "classId": "g11c1",
     "sports": [
       "basketball"
@@ -265,7 +265,7 @@
   },
   {
     "id": "demo-bb-p-g11c1-2",
-    "name": "Lucas Price",
+    "name": "Lucas",
     "classId": "g11c1",
     "sports": [
       "basketball"
@@ -289,7 +289,7 @@
   },
   {
     "id": "demo-bb-p-g11c1-3",
-    "name": "Henry Vaughn",
+    "name": "Henry",
     "classId": "g11c1",
     "sports": [
       "basketball"
@@ -313,7 +313,7 @@
   },
   {
     "id": "demo-bb-p-g11c1-4",
-    "name": "Noah Patel",
+    "name": "Noah",
     "classId": "g11c1",
     "sports": [
       "basketball"
@@ -337,7 +337,7 @@
   },
   {
     "id": "demo-bb-p-g11c1-5",
-    "name": "Eli Turner",
+    "name": "Eli",
     "classId": "g11c1",
     "sports": [
       "basketball"
@@ -361,7 +361,7 @@
   },
   {
     "id": "demo-bb-p-g11c2-1",
-    "name": "Mason Cruz",
+    "name": "Mason",
     "classId": "g11c2",
     "sports": [
       "basketball"
@@ -385,7 +385,7 @@
   },
   {
     "id": "demo-bb-p-g11c2-2",
-    "name": "Jack Porter",
+    "name": "Jack",
     "classId": "g11c2",
     "sports": [
       "basketball"
@@ -409,7 +409,7 @@
   },
   {
     "id": "demo-bb-p-g11c2-3",
-    "name": "Dominic Shaw",
+    "name": "Dominic",
     "classId": "g11c2",
     "sports": [
       "basketball"
@@ -433,7 +433,7 @@
   },
   {
     "id": "demo-bb-p-g11c2-4",
-    "name": "Quinn Adler",
+    "name": "Quinn",
     "classId": "g11c2",
     "sports": [
       "basketball"
@@ -457,7 +457,7 @@
   },
   {
     "id": "demo-bb-p-g11c2-5",
-    "name": "Seth Morales",
+    "name": "Seth",
     "classId": "g11c2",
     "sports": [
       "basketball"
@@ -481,7 +481,7 @@
   },
   {
     "id": "demo-bb-p-g10c1-1",
-    "name": "Finn Gallagher",
+    "name": "Finn",
     "classId": "g10c1",
     "sports": [
       "basketball"
@@ -505,7 +505,7 @@
   },
   {
     "id": "demo-bb-p-g10c1-2",
-    "name": "Brody Lane",
+    "name": "Brody",
     "classId": "g10c1",
     "sports": [
       "basketball"
@@ -529,7 +529,7 @@
   },
   {
     "id": "demo-bb-p-g10c1-3",
-    "name": "Isaac Reed",
+    "name": "Isaac",
     "classId": "g10c1",
     "sports": [
       "basketball"
@@ -553,7 +553,7 @@
   },
   {
     "id": "demo-bb-p-g10c1-4",
-    "name": "Cole Harrington",
+    "name": "Cole",
     "classId": "g10c1",
     "sports": [
       "basketball"
@@ -577,7 +577,7 @@
   },
   {
     "id": "demo-bb-p-g10c1-5",
-    "name": "Wyatt Moss",
+    "name": "Wyatt",
     "classId": "g10c1",
     "sports": [
       "basketball"
@@ -601,7 +601,7 @@
   },
   {
     "id": "demo-bb-p-g10c2-1",
-    "name": "Jasper Quinn",
+    "name": "Jasper",
     "classId": "g10c2",
     "sports": [
       "basketball"
@@ -625,7 +625,7 @@
   },
   {
     "id": "demo-bb-p-g10c2-2",
-    "name": "Nolan Ortiz",
+    "name": "Nolan",
     "classId": "g10c2",
     "sports": [
       "basketball"
@@ -649,7 +649,7 @@
   },
   {
     "id": "demo-bb-p-g10c2-3",
-    "name": "Rowan Ellis",
+    "name": "Rowan",
     "classId": "g10c2",
     "sports": [
       "basketball"
@@ -673,7 +673,7 @@
   },
   {
     "id": "demo-bb-p-g10c2-4",
-    "name": "Kai Henderson",
+    "name": "Kai",
     "classId": "g10c2",
     "sports": [
       "basketball"
@@ -697,7 +697,7 @@
   },
   {
     "id": "demo-bb-p-g10c2-5",
-    "name": "Felix Moore",
+    "name": "Felix",
     "classId": "g10c2",
     "sports": [
       "basketball"
