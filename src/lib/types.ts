@@ -1,4 +1,4 @@
-export const SPORTS = ["basketball", "soccer", "volleyball", "ultimate"] as const;
+export const SPORTS = ["badminton", "basketball", "soccer", "volleyball", "ultimate"] as const;
 export type Sport = (typeof SPORTS)[number];
 
 export type NewsPost = {

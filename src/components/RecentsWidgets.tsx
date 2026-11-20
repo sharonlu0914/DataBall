@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Card } from "@/components/Ui";
 import { EloPickInner } from "@/components/EloPrediction";
 import type { HomeMatchCard, HomeWidget, HomeWidgetLink } from "@/lib/types";
-import { sportLabel } from "@/lib/sports";
+import { sportBracketLinks, sportLabel } from "@/lib/sports";
 
 function picked(ids: string[] | undefined, all: HomeMatchCard[]) {
   if (!ids?.length) return null;
@@ -143,12 +143,7 @@ export function ResultsWidget({ widget, matches }: { widget: HomeWidget; matches
   );
 }
 
-const defaultBracketLinks: HomeWidgetLink[] = [
-  { href: "/sports/basketball/bracket", label: "Basketball" },
-  { href: "/sports/soccer/bracket", label: "Soccer" },
-  { href: "/sports/volleyball/bracket", label: "Volleyball" },
-  { href: "/sports/ultimate/bracket", label: "Frisbee" },
-];
+const defaultBracketLinks: HomeWidgetLink[] = sportBracketLinks();
 
 export function BracketsWidget({ widget }: { widget: HomeWidget }) {
   const links = widget.links?.length ? widget.links : defaultBracketLinks;

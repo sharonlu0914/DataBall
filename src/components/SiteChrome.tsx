@@ -5,15 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Wordmark } from "@/components/Wordmark";
 import { inboxMessages } from "@/lib/inbox";
+import { sportNavItems } from "@/lib/sports";
 
 const inboxPreview = inboxMessages;
 
-const sportsItems = [
-  { href: "/sports/basketball", label: "Basketball" },
-  { href: "/sports/soccer", label: "Soccer" },
-  { href: "/sports/volleyball", label: "Volleyball" },
-  { href: "/sports/ultimate", label: "Frisbee" },
-];
+const sportsItems = sportNavItems();
 
 const recordsItems = [
   { href: "/records/sports-day", label: "Sports Day" },

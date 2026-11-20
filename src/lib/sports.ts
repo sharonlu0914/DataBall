@@ -4,6 +4,12 @@ export const sportMeta: Record<
   Sport,
   { label: string; short: string; blurb: string; accent: string }
 > = {
+  badminton: {
+    label: "Badminton",
+    short: "BD",
+    blurb: "Singles, doubles, brackets, and class rivalries.",
+    accent: "#2D6A4F",
+  },
   basketball: {
     label: "Basketball",
     short: "BB",
@@ -36,4 +42,19 @@ export function isSport(value: string): value is Sport {
 
 export function sportLabel(sport: Sport) {
   return sportMeta[sport].label;
+}
+
+export function shortTeamName(name: string) {
+  return name.replace(/ Basketball| Soccer| Volleyball| Ultimate| Frisbee| Badminton/g, "") || name;
+}
+
+export function sportNavItems() {
+  return SPORTS.map((sport) => ({ href: `/sports/${sport}`, label: sportMeta[sport].label }));
+}
+
+export function sportBracketLinks() {
+  return SPORTS.map((sport) => ({
+    href: `/sports/${sport}/bracket`,
+    label: sportMeta[sport].label,
+  }));
 }

@@ -17,6 +17,7 @@ export const players: Player[] = [];
 export const teams: Team[] = [];
 export const matches: Match[] = [];
 export const rankingsBySport: Record<Sport, RankingRow[]> = {
+  badminton: [],
   basketball: [],
   soccer: [],
   volleyball: [],

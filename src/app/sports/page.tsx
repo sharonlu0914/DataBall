@@ -11,8 +11,8 @@ export default function SportsIndexPage() {
     <div>
       <PageHeader
         kicker="Sports"
-        title="Four leagues, one school"
-        lede="Each sport has a bracket, Elo rankings, stats, class rosters, and championship history."
+        title="Leagues, one school"
+        lede="Each sport has a bracket, Elo rankings, stats, class rosters, and championship history. Badminton is up first."
       />
       <div className="grid gap-4 md:grid-cols-2">
         {SPORTS.map((sport) => (

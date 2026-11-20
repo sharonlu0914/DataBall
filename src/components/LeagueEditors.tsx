@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import type { Match, RankingRow, SchoolClass, Sport, SportStatRow, Team } from "@/lib/types";
+import { SPORTS, type Match, type RankingRow, type SchoolClass, type Sport, type SportStatRow, type Team } from "@/lib/types";
+import { shortTeamName } from "@/lib/sports";
 import { MediaPicker } from "@/components/MediaPicker";
 
 const field = "mt-2 w-full rounded-lg border border-black/15 px-3 py-2 text-sm";
@@ -26,7 +27,7 @@ export function MatchBox({
   teamB?: Team;
 }) {
   function row(team: Team | undefined, score: number | null) {
-    const label = team ? team.name.replace(/ Basketball| Soccer| Volleyball| Ultimate/, "") : "TBD";
+    const label = team ? shortTeamName(team.name) : "TBD";
     return (
       <div className="flex items-center justify-between gap-3 px-3 py-2">
         {team ? (
@@ -440,7 +441,7 @@ export function EditPlayerForm({
       <input name="name" defaultValue={player.name} className={field} required />
       <input name="bio" defaultValue={player.bio} className={field} />
       <fieldset className="mt-3 space-y-1 text-sm">
-        {(["basketball", "soccer", "volleyball", "ultimate"] as Sport[]).map((sport) => (
+        {SPORTS.map((sport) => (
           <label key={sport} className="flex items-center gap-2">
             <input type="checkbox" name="sports" value={sport} defaultChecked={player.sports.includes(sport)} />
             {sport}

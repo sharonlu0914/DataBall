@@ -22,6 +22,8 @@ export const STAT_LABELS: Record<string, string> = {
   fg: "FG%",
   three: "3P%",
   ft: "FT%",
+  wins: "W",
+  losses: "L",
   goals: "G",
   assists: "A",
   sog: "SOG",
@@ -42,6 +44,13 @@ export const BASKETBALL_COLUMNS: StatColumn[] = [
   { key: "fg", label: "FG%", kind: "pct" },
   { key: "three", label: "3P%", kind: "pct" },
   { key: "ft", label: "FT%", kind: "pct" },
+];
+
+const BADMINTON_COLUMNS: StatColumn[] = [
+  { key: "gp", label: "GP", kind: "int" },
+  { key: "wins", aliases: ["w"], label: "W", kind: "int" },
+  { key: "losses", aliases: ["l"], label: "L", kind: "int" },
+  { key: "pts", aliases: ["points", "ppg"], label: "PTS", kind: "dec" },
 ];
 
 const SOCCER_COLUMNS: StatColumn[] = [
@@ -67,6 +76,7 @@ const ULTIMATE_COLUMNS: StatColumn[] = [
 ];
 
 export function columnsForSport(sport: Sport): StatColumn[] {
+  if (sport === "badminton") return BADMINTON_COLUMNS;
   if (sport === "basketball") return BASKETBALL_COLUMNS;
   if (sport === "soccer") return SOCCER_COLUMNS;
   if (sport === "volleyball") return VOLLEYBALL_COLUMNS;

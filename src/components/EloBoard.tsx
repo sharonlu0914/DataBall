@@ -13,10 +13,11 @@ import {
 } from "@/lib/elo";
 import { EloOutcome, PredictButton } from "@/components/EloPrediction";
 import type { EloGame, EloParams, SchoolClass, Sport, Team } from "@/lib/types";
+import { shortTeamName } from "@/lib/sports";
 
 function shortName(team?: Team) {
   if (!team) return "Unknown";
-  return team.name.replace(/ Basketball| Soccer| Volleyball| Ultimate/, "") || team.name;
+  return shortTeamName(team.name);
 }
 
 export function EloBoard({

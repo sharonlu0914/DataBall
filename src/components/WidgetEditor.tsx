@@ -3,13 +3,9 @@
 import { useEffect, useState } from "react";
 import type { HomeWidget, HomeWidgetLink } from "@/lib/types";
 import { MediaPicker } from "@/components/MediaPicker";
+import { sportBracketLinks } from "@/lib/sports";
 
-const defaultBracketLinks: HomeWidgetLink[] = [
-  { href: "/sports/basketball/bracket", label: "Basketball" },
-  { href: "/sports/soccer/bracket", label: "Soccer" },
-  { href: "/sports/volleyball/bracket", label: "Volleyball" },
-  { href: "/sports/ultimate/bracket", label: "Frisbee" },
-];
+const defaultBracketLinks: HomeWidgetLink[] = sportBracketLinks();
 
 function MatchPicker({
   selected,

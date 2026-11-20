@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { isSport, sportLabel } from "@/lib/sports";
+import { isSport, shortTeamName, sportLabel } from "@/lib/sports";
 import { allClasses, getTeam, matchesForSport, teamsForSport } from "@/data/queries";
 import { groupStandings } from "@/lib/league-store";
 import { PageHeader } from "@/components/Ui";
@@ -45,7 +45,7 @@ function GroupPanel({
                 <td className="px-3 py-2">{index + 1}</td>
                 <td className="px-3 py-2 font-medium">
                   <Link href={`/classes/${row.team.classId}`} className="hover:text-gold-dark">
-                    {row.team.name.replace(/ Basketball| Soccer| Volleyball| Ultimate/, "")}
+                    {shortTeamName(row.team.name)}
                   </Link>
                 </td>
                 <td className="px-3 py-2">{row.wins}</td>
